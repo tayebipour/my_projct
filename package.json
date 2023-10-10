@@ -1,0 +1,21 @@
+{
+  "name": "test-session9",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "source": "src/pages/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2"
+  }
+}
