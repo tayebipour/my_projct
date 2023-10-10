@@ -12,6 +12,11 @@ const add_to = {
   username:"",
   password:"",
 };
+const chack_to = {
+  username:"",
+  password:"",
+};
+
 
 user.addEventListener("keydown", () => {
   chack_input();
@@ -23,13 +28,18 @@ btn_submit.addEventListener("click", () => {
     btn_submit.classList.remove("btn-success");
     btn_submit.classList.add("btn-dark");
   } else {
-    add_list(user.value);
+    chack_to.username=user.value;
+    chack_to.password=psw.value;
+    add_list(chack_to);
+    clear();
+    btn_submit.classList.remove("btn-success");
+    btn_submit.classList.add("btn-dark");
   }
 });
 
 function pm_massage() {
   pm_lab.textContent = "Enter username and password please";
-  const lbl_pm= div_lab.appendChild(pm_lab);/////****************************** */
+  const lbl_pm = div_lab.appendChild(pm_lab);/////****************************** */
   setInterval(() => {
     pm_lab.classList.toggle("label");
   }, 1000);
@@ -50,13 +60,13 @@ function chack_input() {
 
 
 function add_list(search_name) {
-  const obj_user = localStorage.getItem("obj")
-    ? localStorage.getItem("obj")
-    : "";
-  const obj_storage = JSON.parse(obj_user);
 
+  const obj_user = localStorage.getItem("obj");
+  const obj_storage = JSON.parse(obj_user);
+console.log(person);
   for (let i = 0; i < obj_storage.length; i++) {
     if (person[i] === search_name) {
+      
       pm_lab.textContent = "existence name";
       console.log("existence name");
     }
@@ -73,4 +83,8 @@ function add_list(search_name) {
     // Store the serialized object in localStorage
     localStorage.setItem("obj", add_Obj);
   }
+}
+function clear(){
+  user.value="";
+  psw.value="";
 }
